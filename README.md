@@ -1,16 +1,79 @@
-# fakta_hewan
+# 🐾 Aplikasi Fakta Hewan
 
-A new Flutter project.
+Aplikasi **Flutter sederhana** yang menampilkan fakta menarik tentang berbagai hewan.
+Masih dalam tahap pengembangan 🚧
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 🚀 Fitur Saat Ini
 
-A few resources to get you started if this is your first Flutter project:
+* Menampilkan daftar hewan beserta fakta uniknya
+* Tombol **'Sebelumnya'** dan **'Berikutnya'**
+* Tampilan gambar dari **asset lokal** maupun **URL internet**
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🧩 Teknologi yang Digunakan
+
+* **Flutter SDK**
+* **Dart Language**
+* **Material Design Components**
+
+---
+
+## 💡 Tujuan Proyek
+
+Proyek ini dibuat untuk memahami:
+
+* Struktur dasar aplikasi Flutter
+* Penggunaan **Stateless** dan **Stateful Widget**
+
+---
+
+## 👤 Pembuat
+
+**Nama:** Erika S. D
+**GitHub:** [@erikasd1](https://github.com/erikasd1)
+
+---
+
+## 🧠 Cara Menjalankan Proyek
+
+Jika kamu ingin menjalankan project ini di perangkat atau emulator kamu, ikuti langkah-langkah berikut:
+
+1. **Clone repository ini**
+
+   ```bash
+   git clone https://github.com/erikasd1/Aplikasi-Fakta-Hewan-Flutter.git
+   ```
+
+2. **Masuk ke folder project**
+
+   ```bash
+   cd Aplikasi-Fakta-Hewan-Flutter
+   ```
+
+3. **Pastikan Flutter sudah terinstal**
+   Jalankan perintah berikut untuk memastikan instalasi:
+
+   ```bash
+   flutter doctor
+   ```
+
+4. **Jalankan aplikasi**
+
+   ```bash
+   flutter run
+   ```
+
+5. **(Opsional)** Pastikan semua gambar lokal sudah terdaftar di `pubspec.yaml`:
+
+   ```yaml
+   assets:
+     - assets/images/kucing.png
+     - assets/images/peguin.png
+     - assets/images/burunghantu.png
+     - assets/images/singa.png
+   ```
+
+---
