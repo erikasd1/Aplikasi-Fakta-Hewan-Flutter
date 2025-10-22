@@ -40,9 +40,14 @@ class _FaktaHewanPageState extends State<FaktaHewanPage> {
       'gambar': 'assets/images/kucing.png',
     },
     {
+      'nama': 'Landak',
+      'fakta': 'Landak memiliki duri tajam untuk melindungi diri dari pemangsa.',
+      'gambar': 'https://www.pngarts.com/files/3/Hedgehog-Free-PNG-Image.png',
+    },
+    {
       'nama': 'Gajah',
       'fakta':
-          'Gajah memiliki ingatan yang sangat kuat dan dapat mengenali wajah manusia bahkan setelah bertahun-tahun tidak bertemu.',
+          'Gajah memiliki otak yang besar, ingatan kuat, dan belalai yang serbaguna.',
       'gambar':
           'https://cdn.pixabay.com/photo/2017/06/01/07/31/elephant-2362696_1280.png',
     },
@@ -57,16 +62,33 @@ class _FaktaHewanPageState extends State<FaktaHewanPage> {
       'gambar': 'https://pngimg.com/uploads/koala/koala_PNG6.png',
     },
     {
+      'nama': 'Kuda Nil',
+      'fakta': 'Kuda nil memiliki rahang besar yang mampu membuka hingga 180 derajat.',
+      'gambar': 'https://www.pngarts.com/files/4/Hippo-PNG-Free-Download.png',
+    },
+    {
       'nama': 'Burung Hantu',
       'fakta':
-          'Burung hantu dapat memutar kepalanya hingga 270 derajat untuk melihat mangsa tanpa menggerakkan tubuh.',
+          'Burung hantu bisa memutar kepala hingga 270° tanpa menggerakkan tubuh.',
       'gambar': 'assets/images/burunghantu.png',
     },
     {
       'nama': 'Singa',
       'fakta':
-          'Singa dikenal sebagai raja hutan karena kekuatan dan kepemimpinannya dalam kelompok.',
+          'Singa dikenal sebagai raja hutan karena kekuatan dan kepemimpinannya',
       'gambar': 'assets/images/singa.png',
+    },
+    {
+      'nama': 'Burung Beo',
+      'fakta':
+          'Burung beo dapat meniru suara manusia dan hewan lain.',
+      'gambar': 'assets/images/beo.png',
+    },
+    {
+      'nama': 'Kepik',
+      'fakta':
+          'Kepik mengeluarkan cairan berbau untuk melindungi diri dari predator.',
+      'gambar': 'assets/images/kepik.png',
     },
     {
       'nama': 'Kanguru',

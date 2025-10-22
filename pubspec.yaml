@@ -64,6 +64,8 @@ flutter:
       - assets/images/penguin.png
       - assets/images/singa.png
       - assets/images/burunghantu.png
+      - assets/images/beo.png
+      - assets/images/kepik.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
