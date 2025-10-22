@@ -1,148 +1,12 @@
-// import 'package:flutter/material.dart';
-
-// void main() {
-//   runApp(const FaktaHewanApp());
-// }
-
-// // ───────────────────────────────────────────────
-// // Stateless Widget (root aplikasi)
-// // ───────────────────────────────────────────────
-// class FaktaHewanApp extends StatelessWidget {
-//   const FaktaHewanApp({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: 'Aplikasi Fakta Hewan',
-//       debugShowCheckedModeBanner: false,
-//       home: const FaktaHewanPage(),
-//     );
-//   }
-// }
-
-// // ───────────────────────────────────────────────
-// // Stateful Widget (UI dinamis dengan tombol next & prev)
-// // ───────────────────────────────────────────────
-// class FaktaHewanPage extends StatefulWidget {
-//   const FaktaHewanPage({super.key});
-
-//   @override
-//   State<FaktaHewanPage> createState() => _FaktaHewanPageState();
-// }
-
-// class _FaktaHewanPageState extends State<FaktaHewanPage> {
-//   int index = 0;
-
-//   // Daftar fakta hewan
-//   final List<Map<String, String>> faktaHewan = [
-//     {
-//       'nama': 'Kucing',
-//       'fakta': 'Kucing bisa melompat hingga enam kali panjang tubuhnya!',
-//       'gambar': 'assets/images/kucing.png', // asset lokal
-//     },
-//     {
-//       'nama': 'Gajah',
-//       'fakta': 'Gajah memiliki ingatan yang sangat kuat.',
-//       'gambar':
-//           'https://cdn.pixabay.com/photo/2017/06/01/07/31/elephant-2362696_1280.png', // gambar internet
-//     },
-//     {
-//       'nama': 'Penguin',
-//       'fakta': 'Pinguin jantan memberikan batu pada betina sebagai tanda cinta.',
-//       'gambar': 'assets/images/peguin.png',
-//     },
-//   ];
-
-//   // Fungsi tombol next & previous
-//   void nextFakta() {
-//     setState(() {
-//       index = (index + 1) % faktaHewan.length;
-//     });
-//   }
-
-//   void prevFakta() {
-//     setState(() {
-//       index = (index - 1 + faktaHewan.length) % faktaHewan.length;
-//     });
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     final hewan = faktaHewan[index];
-
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: const Text('Aplikasi Fakta Hewan'),
-//         backgroundColor: Colors.teal,
-//         centerTitle: true,
-//       ),
-//       body: Column(
-//         mainAxisAlignment: MainAxisAlignment.center,
-//         children: [
-//           // Gambar hewan
-//           Padding(
-//             padding: const EdgeInsets.all(16.0),
-//             child: ClipRRect(
-//               borderRadius: BorderRadius.circular(15),
-//               child: hewan['gambar']!.startsWith('http')
-//                   ? Image.network(hewan['gambar']!, height: 200)
-//                   : Image.asset(hewan['gambar']!, height: 200),
-//             ),
-//           ),
-
-//           // Nama hewan
-//           Text(
-//             hewan['nama']!,
-//             style: const TextStyle(
-//               fontSize: 24,
-//               fontWeight: FontWeight.bold,
-//             ),
-//           ),
-
-//           // Fakta hewan
-//           Padding(
-//             padding: const EdgeInsets.all(16.0),
-//             child: Text(
-//               hewan['fakta']!,
-//               textAlign: TextAlign.center,
-//               style: const TextStyle(fontSize: 16),
-//             ),
-//           ),
-
-//           // Tombol navigasi: Sebelumnya - Berikutnya
-//           Row(
-//             mainAxisAlignment: MainAxisAlignment.center,
-//             children: [
-//               ElevatedButton.icon( 
-//                 onPressed: prevFakta,
-//                 icon: const Icon(Icons.arrow_back),
-//                 label: const Text('Sebelumnya'),
-//               ),
-//               const SizedBox(width: 20),
-//               ElevatedButton.icon(
-//                 onPressed: nextFakta,
-//                 icon: const Icon(Icons.arrow_forward),
-//                 label: const Text('Berikutnya'),
-//               ),
-//             ],
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }
-
-
-/////////////////////////////////////////////////////////////////////////
-
 import 'package:flutter/material.dart';
+import 'package:flip_card/flip_card.dart';
 
 void main() {
   runApp(const FaktaHewanApp());
 }
 
 // ───────────────────────────────────────────────
-// Stateless Widget (root aplikasi)
+// Stateless Widget (Root App)
 // ───────────────────────────────────────────────
 class FaktaHewanApp extends StatelessWidget {
   const FaktaHewanApp({super.key});
@@ -152,17 +16,14 @@ class FaktaHewanApp extends StatelessWidget {
     return MaterialApp(
       title: 'Aplikasi Fakta Hewan',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.teal,
-        fontFamily: 'Arial',
-      ),
+      theme: ThemeData(primarySwatch: Colors.cyan), // 🔹 Ganti jadi cyan
       home: const FaktaHewanPage(),
     );
   }
 }
 
 // ───────────────────────────────────────────────
-// Stateful Widget (UI dinamis)
+// Stateful Widget (semua kartu hewan dalam 1 halaman)
 // ───────────────────────────────────────────────
 class FaktaHewanPage extends StatefulWidget {
   const FaktaHewanPage({super.key});
@@ -172,9 +33,7 @@ class FaktaHewanPage extends StatefulWidget {
 }
 
 class _FaktaHewanPageState extends State<FaktaHewanPage> {
-  int index = 0;
-
-  final List<Map<String, String>> faktaHewan = [
+  final List<Map<String, String>> faktaHewan = const [
     {
       'nama': 'Kucing',
       'fakta': 'Kucing bisa melompat hingga enam kali panjang tubuhnya!',
@@ -182,142 +41,139 @@ class _FaktaHewanPageState extends State<FaktaHewanPage> {
     },
     {
       'nama': 'Gajah',
-      'fakta': 'Gajah memiliki ingatan yang sangat kuat dan dapat mengenali wajah manusia bahkan setelah bertahun-tahun tidak bertemu.',
+      'fakta':
+          'Gajah memiliki ingatan yang sangat kuat dan dapat mengenali wajah manusia bahkan setelah bertahun-tahun tidak bertemu.',
       'gambar':
           'https://cdn.pixabay.com/photo/2017/06/01/07/31/elephant-2362696_1280.png',
     },
     {
       'nama': 'Penguin',
-      'fakta': 'Pinguin jantan memberikan batu pada betina sebagai tanda cinta.',
-      'gambar': 'assets/images/peguin.png',
+      'fakta': 'Penguin jantan memberikan batu pada betina sebagai tanda cinta.',
+      'gambar': 'assets/images/penguin.png',
+    },
+    {
+      'nama': 'Koala',
+      'fakta': 'Koala tidur hingga 20 jam sehari untuk menghemat energi.',
+      'gambar': 'https://pngimg.com/uploads/koala/koala_PNG6.png',
     },
     {
       'nama': 'Burung Hantu',
-      'fakta': 'Burung hantu dapat memutar kepalanya hingga 270 derajat untuk melihat mangsa tanpa harus menggerakkan tubuhnya.',
+      'fakta':
+          'Burung hantu dapat memutar kepalanya hingga 270 derajat untuk melihat mangsa tanpa menggerakkan tubuh.',
       'gambar': 'assets/images/burunghantu.png',
     },
     {
       'nama': 'Singa',
-      'fakta': 'Singa dikenal sebagai raja hutan karena kekuatan, keberanian, dan kepemimpinannya dalam kelompok yang disebut kawanan.',
+      'fakta':
+          'Singa dikenal sebagai raja hutan karena kekuatan dan kepemimpinannya dalam kelompok.',
       'gambar': 'assets/images/singa.png',
     },
     {
       'nama': 'Kanguru',
-      'fakta': 'Kangguru tidak bisa berjalan mundur karena struktur kaki dan ekornya yang besar.',
-      'gambar': 'https://www.pngarts.com/files/6/Australian-Kangaroo-PNG-Image-Transparent-Background.png',
+      'fakta': 'Kangguru tidak bisa berjalan mundur karena ekornya yang besar.',
+      'gambar':
+          'https://www.pngarts.com/files/6/Australian-Kangaroo-PNG-Image-Transparent-Background.png',
+    },
+    {
+      'nama': 'Ayam',
+      'fakta': 'Ayam memiliki kemampuan melihat warna lebih baik daripada manusia.',
+      'gambar':
+          'https://www.pngarts.com/files/4/Rooster-Transparent-Background-PNG.png',
     },
   ];
 
-  void nextFakta() async {
-    setState(() {
-      index = (index + 1) % faktaHewan.length;
-    });
-
-    // Tambahkan jeda ringan agar UI tidak berat
-    await Future.delayed(const Duration(milliseconds: 100));
-  }
-
-
-  void prevFakta() {
-    setState(() {
-      index = (index - 1 + faktaHewan.length) % faktaHewan.length;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    final hewan = faktaHewan[index];
-
     return Scaffold(
-      backgroundColor: Colors.teal.shade50,
       appBar: AppBar(
         title: const Text('Aplikasi Fakta Hewan'),
         centerTitle: true,
-        backgroundColor: Colors.teal.shade400,
-        elevation: 4,
+        backgroundColor: Colors.cyan.shade400, // 🔹 Ganti warna AppBar
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Card(
-            elevation: 10,
-            shadowColor: Colors.teal.withOpacity(0.3),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  // Gambar hewan
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(15),
-                    child: hewan['gambar']!.startsWith('http')
-                        ? Image.network(hewan['gambar']!, height: 200)
-                        : Image.asset(hewan['gambar']!, height: 200),
-                  ),
-                  const SizedBox(height: 16),
-
-                  // Nama hewan
-                  Text(
-                    hewan['nama']!,
-                    style: const TextStyle(
-                      fontSize: 26,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.teal,
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-
-                  // Fakta hewan
-                  Text(
-                    hewan['fakta']!,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.grey[700],
-                    ),
-                  ),
-                  const SizedBox(height: 20),
-
-                  // Tombol next dan prev
-                  Row(
+      backgroundColor: Colors.cyan.shade50, // 🔹 Warna background lembut
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: GridView.builder(
+          itemCount: faktaHewan.length,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            crossAxisSpacing: 12,
+            mainAxisSpacing: 12,
+          ),
+          itemBuilder: (context, i) {
+            final hewan = faktaHewan[i];
+            return FlipCard(
+              direction: FlipDirection.HORIZONTAL,
+              front: Card(
+                color: Colors.white,
+                elevation: 6,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Center(
+                  child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      ElevatedButton.icon(
-                        onPressed: prevFakta,
-                        icon: const Icon(Icons.arrow_back),
-                        label: const Text('Sebelumnya'),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.teal.shade300,
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 20, vertical: 12),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15),
+                      hewan['gambar']!.startsWith('http')
+                          ? Image.network(hewan['gambar']!, height: 80)
+                          : Image.asset(hewan['gambar']!, height: 80),
+                      const SizedBox(height: 10),
+
+                      // 🔹 Row ditambahkan di sini 🔹
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Icon(Icons.lightbulb_outline,
+                              color: Colors.cyan), // 🔹 Warna ikon
+                          const SizedBox(width: 5),
+                          Text(
+                            hewan['nama']!,
+                            style: const TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.cyan, // 🔹 Warna teks nama
+                            ),
                           ),
-                        ),
+                        ],
                       ),
-                      const SizedBox(width: 20),
-                      ElevatedButton.icon(
-                        onPressed: nextFakta,
-                        icon: const Icon(Icons.arrow_forward),
-                        label: const Text('Berikutnya'),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.teal.shade300,
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 20, vertical: 12),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15),
-                          ),
+
+                      const SizedBox(height: 5),
+                      const Text(
+                        'Klik untuk lihat fakta',
+                        style: TextStyle(fontSize: 12, color: Colors.grey),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              back: Card(
+                color: Colors.white,
+                elevation: 6,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(12.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Icon(Icons.lightbulb,
+                          color: Colors.cyan, size: 40), // 🔹 Warna ikon belakang
+                      const SizedBox(height: 10),
+                      Text(
+                        hewan['fakta']!,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          fontSize: 14,
+                          color: Colors.black87,
                         ),
                       ),
                     ],
                   ),
-                ],
+                ),
               ),
-            ),
-          ),
+            );
+          },
         ),
       ),
     );
