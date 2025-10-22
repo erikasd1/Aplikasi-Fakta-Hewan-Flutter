@@ -1,6 +1,7 @@
 # 🐾 Aplikasi Fakta Hewan
 
 Aplikasi **Flutter sederhana** yang menampilkan fakta menarik tentang berbagai hewan.
+Menggunakan efek flip card agar tampilan lebih interaktif dan menyenangkan!
 Masih dalam tahap pengembangan 🚧
 
 ---
@@ -8,8 +9,9 @@ Masih dalam tahap pengembangan 🚧
 ## 🚀 Fitur Saat Ini
 
 * Menampilkan daftar hewan beserta fakta uniknya
-* Tombol **'Sebelumnya'** dan **'Berikutnya'**
-* Tampilan gambar dari **asset lokal** maupun **URL internet**
+* Efek **flip card (kartu membalik)** untuk menampilkan fakta di sisi belakang
+* Gambar dari **asset lokal** maupun **URL internet**
+* Desain grid 2 kolom yang responsif dan ringan
 
 ---
 
@@ -17,6 +19,7 @@ Masih dalam tahap pengembangan 🚧
 
 * **Flutter SDK**
 * **Dart Language**
+* **flip_card package**
 * **Material Design Components**
 
 ---
@@ -25,8 +28,9 @@ Masih dalam tahap pengembangan 🚧
 
 Proyek ini dibuat untuk memahami:
 
-* Struktur dasar aplikasi Flutter
+* Konsep **animasi dan interaksi UI** di Flutter
 * Penggunaan **Stateless** dan **Stateful Widget**
+* Cara menggunakan package eksternal seperti `flip_card`
 
 ---
 
